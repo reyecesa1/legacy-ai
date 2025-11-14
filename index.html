@@ -17,6 +17,8 @@
             --text: #2c3e50;
             --text-light: #7f8c8d;
             --shadow: rgba(0, 0, 0, 0.1);
+            --sidebar-bg: #2c3e50;
+            --sidebar-text: #ecf0f1;
         }
 
         * {
@@ -661,6 +663,639 @@
             font-size: 0.9rem;
         }
 
+        /* Dashboard Styles */
+        #dashboard {
+            display: none;
+            min-height: 100vh;
+        }
+
+        .dashboard-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 1.5rem 0;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            transition: transform 0.3s;
+            z-index: 1000;
+        }
+
+        .dashboard-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            padding: 0 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-logo i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+
+        .sidebar-nav {
+            list-style: none;
+        }
+
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            color: var(--sidebar-text);
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar-nav a:hover, .sidebar-nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-nav i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .sidebar-divider {
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.1);
+            margin: 1.5rem 0;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 2rem;
+            transition: margin-left 0.3s;
+        }
+
+        /* Header */
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .user-details h2 {
+            margin-bottom: 0.2rem;
+        }
+
+        .user-details p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .dashboard-btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .dashboard-btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            border: 2px solid var(--primary);
+        }
+
+        .dashboard-btn-primary:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-light);
+        }
+
+        .dashboard-btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .dashboard-btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Dashboard Cards */
+        .dashboard-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .dashboard-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .dashboard-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Dashboard Sections */
+        .dashboard-section {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            margin-bottom: 0;
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Legacies Grid */
+        .legacies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .legacy-card {
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .legacy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .legacy-image {
+            height: 150px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .legacy-content {
+            padding: 1rem;
+        }
+
+        .legacy-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .legacy-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .legacy-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        /* Progress Section */
+        .progress-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* Recent Activity */
+        .activity-list {
+            list-style: none;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-details p {
+            margin-bottom: 0.2rem;
+        }
+
+        .activity-time {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        /* Page Sections */
+        .page-section {
+            display: none;
+        }
+        
+        .page-section.active {
+            display: block;
+        }
+
+        /* Voice Cloning Section */
+        .voice-sample {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        
+        .voice-sample-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+        
+        .voice-sample-details {
+            flex: 1;
+        }
+        
+        .voice-sample-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        /* Memory Compilation Section */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .memory-item {
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            height: 150px;
+            background-color: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .memory-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .memory-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* Conversations Section */
+        .conversation-list {
+            list-style: none;
+        }
+        
+        .conversation-item {
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+        }
+        
+        .conversation-item:last-child {
+            border-bottom: none;
+        }
+        
+        .conversation-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 1rem;
+        }
+        
+        .conversation-details {
+            flex: 1;
+        }
+        
+        .conversation-time {
+            color: var(--text-light);
+            font-size: 0.8rem;
+        }
+
+        /* Family Sharing Section */
+        .family-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .family-member {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: 8px;
+        }
+        
+        .member-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .member-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Settings Section */
+        .settings-group {
+            margin-bottom: 2rem;
+        }
+        
+        .settings-group h3 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .setting-item:last-child {
+            border-bottom: none;
+        }
+        
+        .setting-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .setting-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+        
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Help & Support Section */
+        .help-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .help-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        
+        .help-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .help-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .faq-list {
+            margin-top: 2rem;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 1100;
+            background-color: var(--primary);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            color: var(--sidebar-text);
+            background: none;
+            border: none;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .logout-btn:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .logout-btn i {
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
         /* Responsive Design */
         @media (max-width: 992px) {
             .hero-content {
@@ -675,6 +1310,26 @@
             
             .demo-container {
                 flex-direction: column;
+            }
+            
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+            
+            .main-content.sidebar-active {
+                margin-left: 250px;
+            }
+            
+            .mobile-toggle {
+                display: flex;
             }
         }
 
@@ -694,337 +1349,1134 @@
             .hero-text h1 {
                 font-size: 2.5rem;
             }
+            
+            .dashboard-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .header-actions {
+                margin-top: 1rem;
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .legacies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .memory-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .family-members {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-infinity"></i>
-                Crystal
-            </div>
-            
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#demo">Demo</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#video">Video</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-                
-                <div class="nav-buttons">
-                    <a href="#" class="btn btn-outline">Login</a>
-                    <a href="#" class="btn btn-primary">Get Started</a>
-                </div>
-            </nav>
-            
-            <div class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </div>
-    </header>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#demo">Demo</a></li>
-            <li><a href="#pricing">Pricing</a></li>
-            <li><a href="#video">Video</a></li>
-            <li><a href="#faq">FAQ</a></li>
-        </ul>
-        
-        <div class="mobile-buttons">
-            <a href="#" class="btn btn-outline">Login</a>
-            <a href="#" class="btn btn-primary">Get Started</a>
-        </div>
-    </div>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <div class="hero-text">
-                <h1>Preserving Memories, Celebrating Lives</h1>
-                <p>Crystal helps you capture and preserve the essence of your loved ones through advanced voice cloning, memory compilation, and interactive digital legacies.</p>
-                <a href="#" class="btn btn-primary">Start Your Legacy</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Family memories">
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-title">
-                <h2>How Crystal Works</h2>
-                <p>Our technology helps you create a beautiful digital legacy that celebrates life and preserves memories for generations to come.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-microphone-alt"></i>
-                    </div>
-                    <h3>Voice Cloning</h3>
-                    <p>Capture the unique voice of your loved ones with our advanced AI technology, preserving their tone, accent, and speech patterns.</p>
+    <!-- Main Website -->
+    <div id="main-site">
+        <!-- Header -->
+        <header>
+            <div class="container header-container">
+                <div class="logo">
+                    <i class="fas fa-infinity"></i>
+                    Crystal
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Memory Compilation</h3>
-                    <p>Gather stories, photos, and memories to create a rich, interactive digital profile that tells the complete story of a life.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-comments"></i>
-                    </div>
-                    <h3>Interactive Conversations</h3>
-                    <p>Engage in meaningful conversations with the digital legacy, asking questions and receiving responses in their voice and style.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section class="demo" id="demo">
-        <div class="container">
-            <div class="section-title">
-                <h2>Experience Crystal</h2>
-                <p>See how our platform works in this interactive demonstration.</p>
-            </div>
-            
-            <div class="demo-container">
-                <div class="demo-text">
-                    <h3>Creating a Digital Legacy</h3>
-                    <p>Our process is simple, respectful, and designed to capture the essence of your loved one. From gathering materials to the final interactive experience, we guide you every step of the way.</p>
-                    <p>Crystal is not about replacing those we've lost, but about preserving their stories, wisdom, and unique personality for future generations.</p>
-                    <a href="#" class="btn btn-outline">Learn More</a>
-                </div>
-                
-                <div class="demo-carousel">
-                    <div class="carousel-slides">
-                        <div class="carousel-slide">
-                            <h3>Step 1: Gather Memories</h3>
-                            <p>Collect photos, videos, audio recordings, and written stories that capture the essence of your loved one.</p>
-                        </div>
-                        <div class="carousel-slide">
-                            <h3>Step 2: Voice Training</h3>
-                            <p>Our AI analyzes speech patterns to create an authentic voice clone that sounds just like them.</p>
-                        </div>
-                        <div class="carousel-slide">
-                            <h3>Step 3: Personality Mapping</h3>
-                            <p>We compile information about their values, beliefs, and personality traits to create an accurate digital representation.</p>
-                        </div>
-                        <div class="carousel-slide">
-                            <h3>Step 4: Interactive Legacy</h3>
-                            <p>Engage with the digital legacy through conversation, asking questions and hearing responses in their voice.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-nav">
-                        <div class="carousel-dot active" data-slide="0"></div>
-                        <div class="carousel-dot" data-slide="1"></div>
-                        <div class="carousel-dot" data-slide="2"></div>
-                        <div class="carousel-dot" data-slide="3"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Choose Your Plan</h2>
-                <p>Select the option that best fits your needs for preserving precious memories.</p>
-            </div>
-            
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3>Starter</h3>
-                    <div class="price">$49<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Basic Voice Cloning</li>
-                        <li><i class="fas fa-check"></i> Up to 10 hours of audio</li>
-                        <li><i class="fas fa-check"></i> 100 memory entries</li>
-                        <li><i class="fas fa-check"></i> Standard support</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Get Started</a>
-                </div>
-                
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Most Popular</div>
-                    <h3>Family</h3>
-                    <div class="price">$99<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Advanced Voice Cloning</li>
-                        <li><i class="fas fa-check"></i> Up to 50 hours of audio</li>
-                        <li><i class="fas fa-check"></i> Unlimited memory entries</li>
-                        <li><i class="fas fa-check"></i> Priority support</li>
-                        <li><i class="fas fa-check"></i> Family sharing (up to 5 users)</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary">Get Started</a>
-                </div>
-                
-                <div class="pricing-card">
-                    <h3>Legacy</h3>
-                    <div class="price">$199<span>/month</span></div>
-                    <ul class="pricing-features">
-                        <li><i class="fas fa-check"></i> Premium Voice Cloning</li>
-                        <li><i class="fas fa-check"></i> Unlimited audio processing</li>
-                        <li><i class="fas fa-check"></i> Unlimited memory entries</li>
-                        <li><i class="fas fa-check"></i> 24/7 premium support</li>
-                        <li><i class="fas fa-check"></i> Multi-generational access</li>
-                        <li><i class="fas fa-check"></i> Custom integration options</li>
-                    </ul>
-                    <a href="#" class="btn btn-outline">Get Started</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Video Section -->
-    <section class="video-section" id="video">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Story</h2>
-                <p>Learn how Crystal is helping families preserve precious memories and create lasting digital legacies.</p>
-            </div>
-            
-            <div class="video-container">
-                <div class="video-placeholder">
-                    <i class="fas fa-play-circle"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq" id="faq">
-        <div class="container">
-            <div class="section-title">
-                <h2>Frequently Asked Questions</h2>
-                <p>Find answers to common questions about Crystal and digital eternity.</p>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How does Crystal differ from other memorial services?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Crystal focuses on celebrating life and preserving memories through interactive technology. We don't approach this as a taboo subject but as a beautiful way to keep the essence of loved ones alive for future generations. Our platform is designed to be uplifting and comforting rather than morbid.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Is the voice cloning process difficult?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Not at all. Our process is designed to be simple and accessible. You just need to provide audio recordings of the person speaking - ideally at least 30 minutes of clear audio. Our AI does the rest, analyzing speech patterns and creating a voice model that can speak any text in their voice.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>How private and secure is my data?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Privacy and security are our top priorities. All data is encrypted both in transit and at rest. You maintain complete control over who can access the digital legacy, and we never share your data with third parties without explicit consent.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Can I update the digital legacy over time?</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Absolutely. We encourage families to continue adding memories, stories, and new information over time. This allows the digital legacy to grow and evolve, just as our memories of loved ones do.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Start Preserving Precious Memories Today</h2>
-            <p>Join thousands of families who are using Crystal to create beautiful digital legacies that celebrate life and preserve memories for generations to come.</p>
-            <a href="#" class="btn btn-outline">Create Your Legacy</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-column">
-                    <h3>Crystal</h3>
-                    <p>Preserving memories, celebrating lives, and creating digital eternities through advanced AI technology.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
+                <nav>
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#features">Features</a></li>
                         <li><a href="#demo">Demo</a></li>
                         <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#video">Video</a></li>
                         <li><a href="#faq">FAQ</a></li>
                     </ul>
-                </div>
+                    
+                    <div class="nav-buttons">
+                        <a href="#" class="btn btn-outline" id="loginBtn">Login</a>
+                        <a href="#" class="btn btn-primary">Get Started</a>
+                    </div>
+                </nav>
                 
-                <div class="footer-column">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#">Voice Cloning</a></li>
-                        <li><a href="#">Memory Compilation</a></li>
-                        <li><a href="#">Digital Legacy</a></li>
-                        <li><a href="#">Family Accounts</a></li>
-                        <li><a href="#">Historical Figures</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> info@legacyai.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Memory Lane, Digital City</li>
-                    </ul>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#demo">Demo</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
             
-            <div class="copyright">
-                <p>&copy; 2023 Crystal. All rights reserved. | Privacy Policy | Terms of Service</p>
+            <div class="mobile-buttons">
+                <a href="#" class="btn btn-outline" id="mobileLoginBtn">Login</a>
+                <a href="#" class="btn btn-primary">Get Started</a>
             </div>
         </div>
-    </footer>
+
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>Preserving Memories, Celebrating Lives</h1>
+                    <p>Crystal helps you capture and preserve the essence of your loved ones through advanced voice cloning, memory compilation, and interactive digital legacies.</p>
+                    <a href="#" class="btn btn-primary">Start Your Legacy</a>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="Family memories">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How Crystal Works</h2>
+                    <p>Our technology helps you create a beautiful digital legacy that celebrates life and preserves memories for generations to come.</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-microphone-alt"></i>
+                        </div>
+                        <h3>Voice Cloning</h3>
+                        <p>Capture the unique voice of your loved ones with our advanced AI technology, preserving their tone, accent, and speech patterns.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Memory Compilation</h3>
+                        <p>Gather stories, photos, and memories to create a rich, interactive digital profile that tells the complete story of a life.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h3>Interactive Conversations</h3>
+                        <p>Engage in meaningful conversations with the digital legacy, asking questions and receiving responses in their voice and style.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Section -->
+        <section class="demo" id="demo">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Experience Crystal</h2>
+                    <p>See how our platform works in this interactive demonstration.</p>
+                </div>
+                
+                <div class="demo-container">
+                    <div class="demo-text">
+                        <h3>Creating a Digital Legacy</h3>
+                        <p>Our process is simple, respectful, and designed to capture the essence of your loved one. From gathering materials to the final interactive experience, we guide you every step of the way.</p>
+                        <p>Crystal is not about replacing those we've lost, but about preserving their stories, wisdom, and unique personality for future generations.</p>
+                        <a href="#" class="btn btn-outline">Learn More</a>
+                    </div>
+                    
+                    <div class="demo-carousel">
+                        <div class="carousel-slides">
+                            <div class="carousel-slide">
+                                <h3>Step 1: Gather Memories</h3>
+                                <p>Collect photos, videos, audio recordings, and written stories that capture the essence of your loved one.</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <h3>Step 2: Voice Training</h3>
+                                <p>Our AI analyzes speech patterns to create an authentic voice clone that sounds just like them.</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <h3>Step 3: Personality Mapping</h3>
+                                <p>We compile information about their values, beliefs, and personality traits to create an accurate digital representation.</p>
+                            </div>
+                            <div class="carousel-slide">
+                                <h3>Step 4: Interactive Legacy</h3>
+                                <p>Engage with the digital legacy through conversation, asking questions and hearing responses in their voice.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-nav">
+                            <div class="carousel-dot active" data-slide="0"></div>
+                            <div class="carousel-dot" data-slide="1"></div>
+                            <div class="carousel-dot" data-slide="2"></div>
+                            <div class="carousel-dot" data-slide="3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Choose Your Plan</h2>
+                    <p>Select the option that best fits your needs for preserving precious memories.</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Starter</h3>
+                        <div class="price">$49<span>/month</span></div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Basic Voice Cloning</li>
+                            <li><i class="fas fa-check"></i> Up to 10 hours of audio</li>
+                            <li><i class="fas fa-check"></i> 100 memory entries</li>
+                            <li><i class="fas fa-check"></i> Standard support</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card popular">
+                        <div class="popular-badge">Most Popular</div>
+                        <h3>Family</h3>
+                        <div class="price">$99<span>/month</span></div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Advanced Voice Cloning</li>
+                            <li><i class="fas fa-check"></i> Up to 50 hours of audio</li>
+                            <li><i class="fas fa-check"></i> Unlimited memory entries</li>
+                            <li><i class="fas fa-check"></i> Priority support</li>
+                            <li><i class="fas fa-check"></i> Family sharing (up to 5 users)</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary">Get Started</a>
+                    </div>
+                    
+                    <div class="pricing-card">
+                        <h3>Legacy</h3>
+                        <div class="price">$199<span>/month</span></div>
+                        <ul class="pricing-features">
+                            <li><i class="fas fa-check"></i> Premium Voice Cloning</li>
+                            <li><i class="fas fa-check"></i> Unlimited audio processing</li>
+                            <li><i class="fas fa-check"></i> Unlimited memory entries</li>
+                            <li><i class="fas fa-check"></i> 24/7 premium support</li>
+                            <li><i class="fas fa-check"></i> Multi-generational access</li>
+                            <li><i class="fas fa-check"></i> Custom integration options</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="video-section" id="video">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Story</h2>
+                    <p>Learn how Crystal is helping families preserve precious memories and create lasting digital legacies.</p>
+                </div>
+                
+                <div class="video-container">
+                    <div class="video-placeholder">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Frequently Asked Questions</h2>
+                    <p>Find answers to common questions about Crystal and digital eternity.</p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How does Crystal differ from other memorial services?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Crystal focuses on celebrating life and preserving memories through interactive technology. We don't approach this as a taboo subject but as a beautiful way to keep the essence of loved ones alive for future generations. Our platform is designed to be uplifting and comforting rather than morbid.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Is the voice cloning process difficult?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Not at all. Our process is designed to be simple and accessible. You just need to provide audio recordings of the person speaking - ideally at least 30 minutes of clear audio. Our AI does the rest, analyzing speech patterns and creating a voice model that can speak any text in their voice.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>How private and secure is my data?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Privacy and security are our top priorities. All data is encrypted both in transit and at rest. You maintain complete control over who can access the digital legacy, and we never share your data with third parties without explicit consent.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>Can I update the digital legacy over time?</span>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. We encourage families to continue adding memories, stories, and new information over time. This allows the digital legacy to grow and evolve, just as our memories of loved ones do.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta">
+            <div class="container">
+                <h2>Start Preserving Precious Memories Today</h2>
+                <p>Join thousands of families who are using Crystal to create beautiful digital legacies that celebrate life and preserve memories for generations to come.</p>
+                <a href="#" class="btn btn-outline">Create Your Legacy</a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="footer-container">
+                    <div class="footer-column">
+                        <h3>Crystal</h3>
+                        <p>Preserving memories, celebrating lives, and creating digital eternities through advanced AI technology.</p>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#features">Features</a></li>
+                            <li><a href="#demo">Demo</a></li>
+                            <li><a href="#pricing">Pricing</a></li>
+                            <li><a href="#faq">FAQ</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#">Voice Cloning</a></li>
+                            <li><a href="#">Memory Compilation</a></li>
+                            <li><a href="#">Digital Legacy</a></li>
+                            <li><a href="#">Family Accounts</a></li>
+                            <li><a href="#">Historical Figures</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li><i class="fas fa-envelope"></i> info@legacyai.com</li>
+                            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                            <li><i class="fas fa-map-marker-alt"></i> 123 Memory Lane, Digital City</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="copyright">
+                    <p>&copy; 2023 Crystal. All rights reserved. | Privacy Policy | Terms of Service</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="sidebar" id="sidebar">
+                <div class="dashboard-logo">
+                    <i class="fas fa-infinity"></i>
+                    Crystal
+                </div>
+                
+                <ul class="sidebar-nav">
+                    <li><a href="#" class="nav-link active" data-target="dashboard"><i class="fas fa-home"></i> Dashboard</a></li>
+                    <li><a href="#" class="nav-link" data-target="voice-cloning"><i class="fas fa-microphone-alt"></i> Voice Cloning</a></li>
+                    <li><a href="#" class="nav-link" data-target="memory-compilation"><i class="fas fa-brain"></i> Memory Compilation</a></li>
+                    <li><a href="#" class="nav-link" data-target="conversations"><i class="fas fa-comments"></i> Conversations</a></li>
+                    <li><a href="#" class="nav-link" data-target="family-sharing"><i class="fas fa-users"></i> Family Sharing</a></li>
+                    
+                    <div class="sidebar-divider"></div>
+                    
+                    <li><a href="#" class="nav-link" data-target="settings"><i class="fas fa-cog"></i> Settings</a></li>
+                    <li><a href="#" class="nav-link" data-target="help-support"><i class="fas fa-question-circle"></i> Help & Support</a></li>
+                    
+                    <div class="sidebar-divider"></div>
+                    
+                    <li>
+                        <button class="logout-btn" id="logoutBtn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </button>
+                    </li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content" id="mainContent">
+                <!-- Header -->
+                <div class="dashboard-header">
+                    <div class="user-info">
+                        <div class="user-avatar">JD</div>
+                        <div class="user-details">
+                            <h2>Welcome, John Doe</h2>
+                            <p>Family Plan • Last login: Today, 10:30 AM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="header-actions">
+                        <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-bell"></i> Notifications</button>
+                        <button class="dashboard-btn dashboard-btn-primary"><i class="fas fa-plus"></i> New Legacy</button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="page-section active">
+                    <!-- Dashboard Cards -->
+                    <div class="dashboard-cards">
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <h3>Active Legacies</h3>
+                            <p>Digital legacies you're currently working on</p>
+                            <div class="card-value">3</div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-microphone-alt"></i>
+                            </div>
+                            <h3>Voice Samples</h3>
+                            <p>Hours of voice recordings processed</p>
+                            <div class="card-value">12.5</div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            <h3>Memories</h3>
+                            <p>Photos and stories added</p>
+                            <div class="card-value">47</div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Conversations</h3>
+                            <p>Interactive sessions this month</p>
+                            <div class="card-value">24</div>
+                        </div>
+                    </div>
+
+                    <!-- My Legacies Section -->
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>My Digital Legacies</h2>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        
+                        <div class="legacies-grid">
+                            <div class="legacy-card">
+                                <div class="legacy-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="legacy-content">
+                                    <h3>Grandma Eleanor</h3>
+                                    <p>Started 3 months ago • 85% complete</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                    <div class="legacy-meta">
+                                        <span>Last updated: 2 days ago</span>
+                                        <span><i class="fas fa-comments"></i> 12 convos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="legacy-card">
+                                <div class="legacy-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="legacy-content">
+                                    <h3>Uncle Robert</h3>
+                                    <p>Started 1 month ago • 45% complete</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <div class="legacy-meta">
+                                        <span>Last updated: 1 week ago</span>
+                                        <span><i class="fas fa-comments"></i> 5 convos</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="legacy-card">
+                                <div class="legacy-image">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="legacy-content">
+                                    <h3>Aunt Margaret</h3>
+                                    <p>Started 2 weeks ago • 20% complete</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 20%"></div>
+                                    </div>
+                                    <div class="legacy-meta">
+                                        <span>Last updated: Today</span>
+                                        <span><i class="fas fa-comments"></i> 2 convos</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Progress & Activity -->
+                    <div class="dashboard-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <!-- Progress Section -->
+                        <div class="dashboard-section">
+                            <div class="section-header">
+                                <h2>Current Progress</h2>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Voice Cloning</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Memory Compilation</span>
+                                    <span>60%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Personality Mapping</span>
+                                    <span>40%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="progress-item">
+                                <div class="progress-header">
+                                    <span>Family Access</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Recent Activity -->
+                        <div class="dashboard-section">
+                            <div class="section-header">
+                                <h2>Recent Activity</h2>
+                                <a href="#" class="view-all">View All</a>
+                            </div>
+                            
+                            <ul class="activity-list">
+                                <li class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-microphone-alt"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Added 30 minutes of voice recordings</p>
+                                        <span class="activity-time">Today, 9:45 AM</span>
+                                    </div>
+                                </li>
+                                
+                                <li class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Uploaded 5 childhood photos</p>
+                                        <span class="activity-time">Yesterday, 3:20 PM</span>
+                                    </div>
+                                </li>
+                                
+                                <li class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Had a conversation with Grandma Eleanor's legacy</p>
+                                        <span class="activity-time">2 days ago</span>
+                                    </div>
+                                </li>
+                                
+                                <li class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-share-alt"></i>
+                                    </div>
+                                    <div class="activity-details">
+                                        <p>Shared access with Sarah Johnson</p>
+                                        <span class="activity-time">3 days ago</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Voice Cloning Section -->
+                <section id="voice-cloning-section" class="page-section">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Voice Cloning</h2>
+                            <button class="dashboard-btn dashboard-btn-primary"><i class="fas fa-plus"></i> Add Voice Sample</button>
+                        </div>
+                        
+                        <div class="voice-samples">
+                            <div class="voice-sample">
+                                <div class="voice-sample-icon">
+                                    <i class="fas fa-microphone-alt"></i>
+                                </div>
+                                <div class="voice-sample-details">
+                                    <h4>Grandma Eleanor - Interview 1</h4>
+                                    <p>45 minutes • Recorded: March 12, 2023</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div class="voice-sample-actions">
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-play"></i></button>
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="voice-sample">
+                                <div class="voice-sample-icon">
+                                    <i class="fas fa-microphone-alt"></i>
+                                </div>
+                                <div class="voice-sample-details">
+                                    <h4>Grandma Eleanor - Family Stories</h4>
+                                    <p>32 minutes • Recorded: April 5, 2023</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 100%"></div>
+                                    </div>
+                                </div>
+                                <div class="voice-sample-actions">
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-play"></i></button>
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="voice-sample">
+                                <div class="voice-sample-icon">
+                                    <i class="fas fa-microphone-alt"></i>
+                                </div>
+                                <div class="voice-sample-details">
+                                    <h4>Uncle Robert - Life Memories</h4>
+                                    <p>28 minutes • Recorded: May 20, 2023</p>
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                </div>
+                                <div class="voice-sample-actions">
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-play"></i></button>
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-edit"></i></button>
+                                    <button class="dashboard-btn dashboard-btn-outline"><i class="fas fa-trash"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Voice Model Quality</h2>
+                        </div>
+                        
+                        <div class="dashboard-cards">
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>Accuracy Score</h3>
+                                <p>How closely the model matches the original voice</p>
+                                <div class="card-value">94%</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3>Training Time</h3>
+                                <p>Hours of audio used for training</p>
+                                <div class="card-value">12.5h</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-file-audio"></i>
+                                </div>
+                                <h3>Voice Samples</h3>
+                                <p>Number of audio files processed</p>
+                                <div class="card-value">24</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Memory Compilation Section -->
+                <section id="memory-compilation-section" class="page-section">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Memory Compilation</h2>
+                            <button class="dashboard-btn dashboard-btn-primary"><i class="fas fa-plus"></i> Add Memory</button>
+                        </div>
+                        
+                        <div class="memory-grid">
+                            <div class="memory-item">
+                                <div class="memory-overlay">Wedding Day - 1975</div>
+                            </div>
+                            <div class="memory-item">
+                                <div class="memory-overlay">Graduation - 1992</div>
+                            </div>
+                            <div class="memory-item">
+                                <div class="memory-overlay">Family Vacation - 2005</div>
+                            </div>
+                            <div class="memory-item">
+                                <div class="memory-overlay">Birthday Party - 2010</div>
+                            </div>
+                            <div class="memory-item">
+                                <div class="memory-overlay">Christmas - 2018</div>
+                            </div>
+                            <div class="memory-item">
+                                <div class="memory-overlay">Add New Memory</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Memory Categories</h2>
+                        </div>
+                        
+                        <div class="dashboard-cards">
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <h3>Photos</h3>
+                                <p>Digital and scanned photographs</p>
+                                <div class="card-value">142</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <h3>Videos</h3>
+                                <p>Home movies and recordings</p>
+                                <div class="card-value">36</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-file-alt"></i>
+                                </div>
+                                <h3>Stories</h3>
+                                <p>Written memories and anecdotes</p>
+                                <div class="card-value">58</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-audio-description"></i>
+                                </div>
+                                <h3>Audio Notes</h3>
+                                <p>Voice recordings of memories</p>
+                                <div class="card-value">24</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Conversations Section -->
+                <section id="conversations-section" class="page-section">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Recent Conversations</h2>
+                            <button class="dashboard-btn dashboard-btn-primary"><i class="fas fa-plus"></i> Start New Conversation</button>
+                        </div>
+                        
+                        <ul class="conversation-list">
+                            <li class="conversation-item">
+                                <div class="conversation-avatar">GE</div>
+                                <div class="conversation-details">
+                                    <h4>Grandma Eleanor</h4>
+                                    <p>You: What was your favorite childhood memory?</p>
+                                    <span class="conversation-time">Today, 11:30 AM</span>
+                                </div>
+                            </li>
+                            
+                            <li class="conversation-item">
+                                <div class="conversation-avatar">UR</div>
+                                <div class="conversation-details">
+                                    <h4>Uncle Robert</h4>
+                                    <p>Uncle Robert: I remember when we went fishing that summer...</p>
+                                    <span class="conversation-time">Yesterday, 4:15 PM</span>
+                                </div>
+                            </li>
+                            
+                            <li class="conversation-item">
+                                <div class="conversation-avatar">AM</div>
+                                <div class="conversation-details">
+                                    <h4>Aunt Margaret</h4>
+                                    <p>Aunt Margaret: Your mother was always the creative one in the family...</p>
+                                    <span class="conversation-time">2 days ago</span>
+                                </div>
+                            </li>
+                            
+                            <li class="conversation-item">
+                                <div class="conversation-avatar">GE</div>
+                                <div class="conversation-details">
+                                    <h4>Grandma Eleanor</h4>
+                                    <p>Grandma Eleanor: I've always been proud of you, you know...</p>
+                                    <span class="conversation-time">3 days ago</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Conversation Statistics</h2>
+                        </div>
+                        
+                        <div class="dashboard-cards">
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h3>Total Conversations</h3>
+                                <p>All interactive sessions</p>
+                                <div class="card-value">47</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <h3>Average Duration</h3>
+                                <p>Length of typical conversation</p>
+                                <div class="card-value">12m</div>
+                            </div>
+                            
+                            <div class="dashboard-card">
+                                <div class="card-icon">
+                                    <i class="fas fa-calendar"></i>
+                                </div>
+                                <h3>This Month</h3>
+                                <p>Conversations in current month</p>
+                                <div class="card-value">8</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Family Sharing Section -->
+                <section id="family-sharing-section" class="page-section">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Family Members</h2>
+                            <button class="dashboard-btn dashboard-btn-primary"><i class="fas fa-user-plus"></i> Invite Family Member</button>
+                        </div>
+                        
+                        <div class="family-members">
+                            <div class="family-member">
+                                <div class="member-avatar">SJ</div>
+                                <h4>Sarah Johnson</h4>
+                                <div class="member-role">Daughter • Full Access</div>
+                                <p>Last active: Today</p>
+                            </div>
+                            
+                            <div class="family-member">
+                                <div class="member-avatar">MJ</div>
+                                <h4>Michael Johnson</h4>
+                                <div class="member-role">Son • Full Access</div>
+                                <p>Last active: 2 days ago</p>
+                            </div>
+                            
+                            <div class="family-member">
+                                <div class="member-avatar">EJ</div>
+                                <h4>Emily Johnson</h4>
+                                <div class="member-role">Granddaughter • View Only</div>
+                                <p>Last active: 1 week ago</p>
+                            </div>
+                            
+                            <div class="family-member">
+                                <div class="member-avatar">RJ</div>
+                                <h4>Robert Johnson</h4>
+                                <div class="member-role">Brother • Limited Access</div>
+                                <p>Last active: 3 weeks ago</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Sharing Settings</h2>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Allow Family Comments</h4>
+                                <p>Family members can add comments and memories</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>New Member Approval</h4>
+                                <p>Require approval before new members can join</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                        
+                        <div class="setting-item">
+                            <div class="setting-info">
+                                <h4>Activity Notifications</h4>
+                                <p>Receive notifications when family members are active</p>
+                            </div>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="page-section">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Account Settings</h2>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Profile Information</h3>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Name</h4>
+                                    <p>John Doe</p>
+                                </div>
+                                <button class="dashboard-btn dashboard-btn-outline">Edit</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Email</h4>
+                                    <p>john.doe@example.com</p>
+                                </div>
+                                <button class="dashboard-btn dashboard-btn-outline">Edit</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Password</h4>
+                                    <p>Last changed 3 months ago</p>
+                                </div>
+                                <button class="dashboard-btn dashboard-btn-outline">Change</button>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Subscription</h3>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Current Plan</h4>
+                                    <p>Family Plan • $99/month</p>
+                                </div>
+                                <button class="dashboard-btn dashboard-btn-outline">Manage</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Billing Cycle</h4>
+                                    <p>Monthly • Next payment: August 15, 2023</p>
+                                </div>
+                                <button class="dashboard-btn dashboard-btn-outline">Change</button>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Payment Method</h4>
+                                    <p>Visa •••• 4242</p>
+                                </div>
+                                <button class="dashboard-btn dashboard-btn-outline">Update</button>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Privacy & Security</h3>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Data Encryption</h4>
+                                    <p>All your data is encrypted for security</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Two-Factor Authentication</h4>
+                                    <p>Add an extra layer of security to your account</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                            
+                            <div class="setting-item">
+                                <div class="setting-info">
+                                    <h4>Auto-Logout</h4>
+                                    <p>Automatically log out after 30 minutes of inactivity</p>
+                                </div>
+                                <label class="toggle">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Help & Support Section -->
+                <section id="help-support-section" class="page-section">
+                    <div class="dashboard-section">
+                        <div class="section-header">
+                            <h2>Help & Support</h2>
+                        </div>
+                        
+                        <div class="help-cards">
+                            <div class="help-card">
+                                <i class="fas fa-book"></i>
+                                <h3>Knowledge Base</h3>
+                                <p>Browse our comprehensive guides and tutorials</p>
+                                <button class="dashboard-btn dashboard-btn-primary">Explore</button>
+                            </div>
+                            
+                            <div class="help-card">
+                                <i class="fas fa-video"></i>
+                                <h3>Video Tutorials</h3>
+                                <p>Watch step-by-step video guides</p>
+                                <button class="dashboard-btn dashboard-btn-primary">Watch</button>
+                            </div>
+                            
+                            <div class="help-card">
+                                <i class="fas fa-comments"></i>
+                                <h3>Contact Support</h3>
+                                <p>Get help from our support team</p>
+                                <button class="dashboard-btn dashboard-btn-primary">Contact</button>
+                            </div>
+                        </div>
+                        
+                        <div class="faq-list">
+                            <h3>Frequently Asked Questions</h3>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>How do I add more voice samples?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>You can add voice samples by going to the Voice Cloning section and clicking the "Add Voice Sample" button. We recommend at least 30 minutes of clear audio for best results.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>Can I download my data?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>Yes, you can export your data at any time. Go to Settings > Privacy & Security and click on "Export My Data". The process may take some time depending on the amount of data.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="faq-item">
+                                <div class="faq-question">
+                                    <span>How do I change my subscription plan?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer">
+                                    <p>You can change your subscription plan in the Settings section under "Subscription". Changes will take effect at the start of your next billing cycle.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <div class="mobile-toggle" id="mobileToggle">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
 
     <script>
-        // Mobile Navigation Toggle
+        // Main site functionality
         const hamburger = document.getElementById('hamburger');
         const mobileMenu = document.getElementById('mobileMenu');
         
@@ -1101,6 +2553,106 @@
                     });
                 }
             });
+        });
+
+        // Dashboard functionality
+        // Mobile sidebar toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('mainContent');
+        
+        mobileToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            mainContent.classList.toggle('sidebar-active');
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 992) {
+                if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                    mainContent.classList.remove('sidebar-active');
+                }
+            }
+        });
+        
+        // Navigation between sections
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all links and sections
+                navLinks.forEach(navLink => navLink.classList.remove('active'));
+                pageSections.forEach(section => section.classList.remove('active'));
+                
+                // Add active class to clicked link
+                link.classList.add('active');
+                
+                // Show the corresponding section
+                const target = link.getAttribute('data-target');
+                document.getElementById(target + '-section').classList.add('active');
+                
+                // Close sidebar on mobile after navigation
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('active');
+                    mainContent.classList.remove('sidebar-active');
+                }
+            });
+        });
+        
+        // FAQ functionality
+        const dashboardFaqQuestions = document.querySelectorAll('#help-support-section .faq-question');
+        
+        dashboardFaqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                
+                // Close all other FAQ items
+                dashboardFaqQuestions.forEach(q => {
+                    if (q !== question) {
+                        q.parentElement.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current FAQ item
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // Login/Logout functionality
+        const loginBtn = document.getElementById('loginBtn');
+        const mobileLoginBtn = document.getElementById('mobileLoginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const mainSite = document.getElementById('main-site');
+        const dashboard = document.getElementById('dashboard');
+        
+        function showDashboard() {
+            mainSite.style.display = 'none';
+            dashboard.style.display = 'block';
+            document.body.style.backgroundColor = '#f7f1e3';
+        }
+        
+        function showMainSite() {
+            mainSite.style.display = 'block';
+            dashboard.style.display = 'none';
+            document.body.style.backgroundColor = '#f7f1e3';
+        }
+        
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showDashboard();
+        });
+        
+        mobileLoginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showDashboard();
+        });
+        
+        logoutBtn.addEventListener('click', () => {
+            showMainSite();
         });
     </script>
 </body>
