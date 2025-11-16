@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Crystal- Preserving Memories, Celebrating Lives</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -27,12 +27,20 @@
             box-sizing: border-box;
         }
 
+        html {
+            /* Prevent zooming issues on mobile */
+            -webkit-text-size-adjust: 100%;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text);
             line-height: 1.6;
             background-color: var(--light);
             overflow-x: hidden;
+            /* Prevent horizontal scrolling */
+            width: 100%;
+            max-width: 100%;
         }
 
         h1, h2, h3, h4 {
@@ -45,6 +53,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 15px;
         }
 
         /* Header & Navigation */
@@ -60,12 +69,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.5rem 0;
+            padding: 1rem 0;
         }
 
         .logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--primary);
             display: flex;
@@ -85,11 +94,11 @@
         nav ul {
             display: flex;
             list-style: none;
-            margin-right: 2rem;
+            margin-right: 1rem;
         }
 
         nav ul li {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
 
         nav ul li a {
@@ -98,6 +107,7 @@
             font-weight: 500;
             transition: color 0.3s;
             position: relative;
+            font-size: 0.9rem;
         }
 
         nav ul li a:hover {
@@ -121,17 +131,18 @@
 
         .nav-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .btn {
-            padding: 0.7rem 1.5rem;
+            padding: 0.6rem 1.2rem;
             border-radius: 30px;
             font-weight: 500;
             cursor: pointer;
             transition: all 0.3s;
             text-decoration: none;
             display: inline-block;
+            font-size: 0.9rem;
         }
 
         .btn-primary {
@@ -166,12 +177,12 @@
         /* Mobile Menu */
         .mobile-menu {
             position: fixed;
-            top: 80px;
+            top: 70px;
             left: 0;
             width: 100%;
             background-color: var(--white);
             flex-direction: column;
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             box-shadow: 0 10px 10px var(--shadow);
             transform: translateY(-150%);
             transition: transform 0.3s;
@@ -190,7 +201,7 @@
         }
 
         .mobile-menu ul li {
-            margin: 1rem 0;
+            margin: 0.8rem 0;
         }
 
         .mobile-menu ul li a {
@@ -211,13 +222,13 @@
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             padding: 0 2rem;
         }
 
-        /* Hero Section */
+        /* Hero Section - Mobile Optimized */
         .hero {
-            padding: 10rem 0 5rem;
+            padding: 8rem 0 4rem;
             background: linear-gradient(135deg, var(--white) 0%, var(--light) 100%);
             position: relative;
             overflow: hidden;
@@ -238,32 +249,37 @@
 
         .hero-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             position: relative;
             z-index: 1;
+            text-align: center;
         }
 
         .hero-text {
-            flex: 1;
-            padding-right: 2rem;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 2rem;
         }
 
         .hero-text h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem;
+            line-height: 1.3;
+            margin-bottom: 1.2rem;
             color: var(--text);
         }
 
         .hero-text p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.8rem;
             color: var(--text-light);
+            line-height: 1.6;
         }
 
         .hero-image {
-            flex: 1;
+            width: 100%;
+            max-width: 500px;
             text-align: center;
             position: relative;
         }
@@ -282,17 +298,17 @@
 
         /* Features Section */
         .features {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background-color: var(--white);
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: var(--primary);
         }
 
@@ -304,14 +320,14 @@
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .feature-card {
             background-color: var(--light);
             border-radius: 10px;
-            padding: 2rem;
+            padding: 1.5rem;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 5px 15px var(--shadow);
@@ -323,19 +339,19 @@
         }
 
         .feature-icon {
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
         }
 
         /* Demo Section */
         .demo {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
             color: var(--white);
         }
@@ -346,20 +362,21 @@
 
         .demo-container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 3rem;
+            gap: 2rem;
         }
 
         .demo-text {
-            flex: 1;
+            width: 100%;
         }
 
         .demo-text p {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .demo-carousel {
-            flex: 1;
+            width: 100%;
             position: relative;
             border-radius: 10px;
             overflow: hidden;
@@ -373,7 +390,7 @@
 
         .carousel-slide {
             min-width: 100%;
-            padding: 2rem;
+            padding: 1.5rem;
             background-color: var(--white);
             color: var(--text);
             text-align: center;
@@ -381,7 +398,7 @@
 
         .carousel-slide h3 {
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .carousel-nav {
@@ -407,20 +424,20 @@
 
         /* Pricing Section */
         .pricing {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background-color: var(--light);
         }
 
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
         .pricing-card {
             background-color: var(--white);
             border-radius: 10px;
-            padding: 2.5rem 2rem;
+            padding: 2rem 1.5rem;
             text-align: center;
             box-shadow: 0 5px 15px var(--shadow);
             transition: transform 0.3s;
@@ -449,29 +466,29 @@
         }
 
         .pricing-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
         }
 
         .price {
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--primary);
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .price span {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: var(--text-light);
         }
 
         .pricing-features {
             list-style: none;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .pricing-features li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -484,7 +501,7 @@
 
         /* Video Section */
         .video-section {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background-color: var(--white);
         }
 
@@ -499,7 +516,7 @@
 
         .video-placeholder {
             width: 100%;
-            height: 450px;
+            height: 300px;
             background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
             display: flex;
             align-items: center;
@@ -510,7 +527,7 @@
         }
 
         .video-placeholder i {
-            font-size: 4rem;
+            font-size: 3rem;
             transition: transform 0.3s;
         }
 
@@ -520,7 +537,7 @@
 
         /* FAQ Section */
         .faq {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background-color: var(--light);
         }
 
@@ -537,7 +554,7 @@
         }
 
         .faq-question {
-            padding: 1.5rem;
+            padding: 1.2rem;
             background-color: var(--white);
             cursor: pointer;
             display: flex;
@@ -551,7 +568,7 @@
         }
 
         .faq-answer {
-            padding: 0 1.5rem;
+            padding: 0 1.2rem;
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.3s, padding 0.3s;
@@ -559,7 +576,7 @@
         }
 
         .faq-item.active .faq-answer {
-            padding: 1.5rem;
+            padding: 1.2rem;
             max-height: 500px;
         }
 
@@ -569,7 +586,7 @@
 
         /* CTA Section */
         .cta {
-            padding: 5rem 0;
+            padding: 4rem 0;
             background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
             color: var(--white);
             text-align: center;
@@ -577,32 +594,32 @@
 
         .cta h2 {
             color: var(--white);
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
         }
 
         .cta p {
             max-width: 600px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
         }
 
         /* Footer */
         footer {
             background-color: var(--text);
             color: var(--white);
-            padding: 4rem 0 2rem;
+            padding: 3rem 0 1.5rem;
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
             position: relative;
         }
 
@@ -621,7 +638,7 @@
         }
 
         .footer-column ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .footer-column ul li a {
@@ -636,15 +653,15 @@
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         .social-links a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             background-color: rgba(255, 255, 255, 0.1);
             color: var(--white);
@@ -657,13 +674,13 @@
 
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
-        /* Dashboard Styles */
+        /* Dashboard Styles - Mobile Optimized */
         #dashboard {
             display: none;
             min-height: 100vh;
@@ -671,31 +688,37 @@
 
         .dashboard-container {
             display: flex;
+            flex-direction: column;
             min-height: 100vh;
         }
 
         /* Sidebar */
         .sidebar {
-            width: 250px;
+            width: 100%;
             background-color: var(--sidebar-bg);
             color: var(--sidebar-text);
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             position: fixed;
             height: 100vh;
             overflow-y: auto;
+            transform: translateX(-100%);
             transition: transform 0.3s;
             z-index: 1000;
         }
 
+        .sidebar.active {
+            transform: translateX(0);
+        }
+
         .dashboard-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--white);
             display: flex;
             align-items: center;
-            padding: 0 1.5rem;
-            margin-bottom: 2rem;
+            padding: 0 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .dashboard-logo i {
@@ -708,13 +731,13 @@
         }
 
         .sidebar-nav li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
         }
 
         .sidebar-nav a {
             display: flex;
             align-items: center;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1rem;
             color: var(--sidebar-text);
             text-decoration: none;
             transition: background-color 0.3s;
@@ -725,7 +748,7 @@
         }
 
         .sidebar-nav i {
-            margin-right: 0.8rem;
+            margin-right: 0.7rem;
             width: 20px;
             text-align: center;
         }
@@ -733,23 +756,21 @@
         .sidebar-divider {
             height: 1px;
             background-color: rgba(255, 255, 255, 0.1);
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         /* Main Content */
         .main-content {
             flex: 1;
-            margin-left: 250px;
-            padding: 2rem;
-            transition: margin-left 0.3s;
+            padding: 1rem;
+            width: 100%;
         }
 
         /* Header */
         .dashboard-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
+            flex-direction: column;
+            margin-bottom: 1.5rem;
             padding-bottom: 1rem;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
         }
@@ -757,11 +778,12 @@
         .user-info {
             display: flex;
             align-items: center;
+            margin-bottom: 1rem;
         }
 
         .user-avatar {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: var(--primary);
             display: flex;
@@ -769,25 +791,33 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            margin-right: 1rem;
+            margin-right: 0.8rem;
         }
 
         .user-details h2 {
             margin-bottom: 0.2rem;
+            font-size: 1.3rem;
         }
 
         .user-details p {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .header-actions {
             display: flex;
-            gap: 1rem;
+            gap: 0.8rem;
+            width: 100%;
+            justify-content: flex-end;
+        }
+
+        .header-actions .dashboard-btn {
+            flex: 0 1 auto;
+            text-align: center;
         }
 
         .dashboard-btn {
-            padding: 0.7rem 1.5rem;
+            padding: 0.6rem 1rem;
             border-radius: 30px;
             font-weight: 500;
             cursor: pointer;
@@ -796,6 +826,7 @@
             display: inline-block;
             border: none;
             font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
         }
 
         .dashboard-btn-primary {
@@ -823,15 +854,15 @@
         /* Dashboard Cards */
         .dashboard-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .dashboard-card {
             background-color: var(--white);
             border-radius: 10px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             box-shadow: 0 5px 15px var(--shadow);
             transition: transform 0.3s;
         }
@@ -841,24 +872,24 @@
         }
 
         .card-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
 
         .dashboard-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
         }
 
         .dashboard-card p {
             color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
         }
 
         .card-value {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary);
         }
@@ -867,33 +898,34 @@
         .dashboard-section {
             background-color: var(--white);
             border-radius: 10px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             box-shadow: 0 5px 15px var(--shadow);
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .section-header {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            flex-direction: column;
+            margin-bottom: 1.2rem;
         }
 
         .section-header h2 {
-            margin-bottom: 0;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
         }
 
         .view-all {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
+            align-self: flex-start;
         }
 
         /* Legacies Grid */
         .legacies-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
         }
 
         .legacy-card {
@@ -908,46 +940,47 @@
         }
 
         .legacy-image {
-            height: 150px;
+            height: 120px;
             background-color: var(--primary-light);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 3rem;
+            font-size: 2.5rem;
         }
 
         .legacy-content {
-            padding: 1rem;
+            padding: 0.8rem;
         }
 
         .legacy-content h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            margin-bottom: 0.4rem;
         }
 
         .legacy-content p {
             color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
         }
 
         .legacy-meta {
             display: flex;
             justify-content: space-between;
             color: var(--text-light);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         /* Progress Section */
         .progress-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
 
         .progress-header {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
         }
 
         .progress-bar {
@@ -971,7 +1004,7 @@
         .activity-item {
             display: flex;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
@@ -980,15 +1013,16 @@
         }
 
         .activity-icon {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             background-color: var(--primary-light);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            margin-right: 1rem;
+            margin-right: 0.8rem;
+            font-size: 0.9rem;
         }
 
         .activity-details {
@@ -997,11 +1031,12 @@
 
         .activity-details p {
             margin-bottom: 0.2rem;
+            font-size: 0.9rem;
         }
 
         .activity-time {
             color: var(--text-light);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         /* Page Sections */
@@ -1016,16 +1051,22 @@
         /* Voice Cloning Section */
         .voice-sample {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             padding: 1rem;
             background-color: var(--light);
             border-radius: 8px;
             margin-bottom: 1rem;
         }
         
+        .voice-sample-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+        
         .voice-sample-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
+            font-size: 1.3rem;
+            margin-right: 0.8rem;
             color: var(--primary);
         }
         
@@ -1035,21 +1076,23 @@
         
         .voice-sample-actions {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+            justify-content: flex-end;
         }
 
         /* Memory Compilation Section */
         .memory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.8rem;
         }
         
         .memory-item {
             border-radius: 8px;
             overflow: hidden;
             position: relative;
-            height: 150px;
+            height: 120px;
             background-color: var(--primary-light);
             display: flex;
             align-items: center;
@@ -1070,8 +1113,8 @@
             right: 0;
             background: rgba(0,0,0,0.7);
             color: white;
-            padding: 0.5rem;
-            font-size: 0.8rem;
+            padding: 0.4rem;
+            font-size: 0.7rem;
         }
 
         /* Conversations Section */
@@ -1080,10 +1123,10 @@
         }
         
         .conversation-item {
-            padding: 1rem;
+            padding: 0.8rem;
             border-bottom: 1px solid rgba(0,0,0,0.1);
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
         
         .conversation-item:last-child {
@@ -1091,31 +1134,42 @@
         }
         
         .conversation-avatar {
-            width: 40px;
-            height: 40px;
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             background-color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            margin-right: 1rem;
+            margin-right: 0.8rem;
+            flex-shrink: 0;
         }
         
         .conversation-details {
             flex: 1;
         }
         
+        .conversation-details h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .conversation-details p {
+            font-size: 0.8rem;
+            margin-bottom: 0.2rem;
+        }
+        
         .conversation-time {
             color: var(--text-light);
-            font-size: 0.8rem;
+            font-size: 0.7rem;
         }
 
         /* Family Sharing Section */
         .family-members {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
         }
         
         .family-member {
@@ -1126,40 +1180,41 @@
         }
         
         .member-avatar {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             background-color: var(--primary);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            margin: 0 auto 1rem;
+            font-size: 1.3rem;
+            margin: 0 auto 0.8rem;
         }
         
         .member-role {
             color: var(--text-light);
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.4rem;
         }
 
         /* Settings Section */
         .settings-group {
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         
         .settings-group h3 {
-            margin-bottom: 1rem;
-            padding-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.4rem;
             border-bottom: 1px solid rgba(0,0,0,0.1);
+            font-size: 1.1rem;
         }
         
         .setting-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
+            padding: 0.8rem 0;
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
@@ -1169,18 +1224,19 @@
         
         .setting-info h4 {
             margin-bottom: 0.2rem;
+            font-size: 0.9rem;
         }
         
         .setting-info p {
             color: var(--text-light);
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
         
         .toggle {
             position: relative;
             display: inline-block;
-            width: 50px;
-            height: 24px;
+            width: 45px;
+            height: 22px;
         }
         
         .toggle input {
@@ -1198,7 +1254,7 @@
             bottom: 0;
             background-color: #ccc;
             transition: .4s;
-            border-radius: 24px;
+            border-radius: 22px;
         }
         
         .slider:before {
@@ -1206,8 +1262,8 @@
             content: "";
             height: 16px;
             width: 16px;
-            left: 4px;
-            bottom: 4px;
+            left: 3px;
+            bottom: 3px;
             background-color: white;
             transition: .4s;
             border-radius: 50%;
@@ -1218,21 +1274,21 @@
         }
         
         input:checked + .slider:before {
-            transform: translateX(26px);
+            transform: translateX(23px);
         }
 
         /* Help & Support Section */
         .help-cards {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.2rem;
+            margin-bottom: 1.5rem;
         }
         
         .help-card {
             background-color: var(--light);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 1.2rem;
             text-align: center;
             transition: transform 0.3s;
         }
@@ -1242,28 +1298,27 @@
         }
         
         .help-card i {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--primary);
-            margin-bottom: 1rem;
+            margin-bottom: 0.8rem;
         }
         
         .faq-list {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
 
         /* Mobile Menu Toggle */
         .mobile-toggle {
-            display: none;
+            display: flex;
             position: fixed;
-            top: 1rem;
-            left: 1rem;
+            top: 0.8rem;
+            right: 0.8rem;
             z-index: 1100;
             background-color: var(--primary);
             color: white;
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
@@ -1277,12 +1332,12 @@
             border: none;
             display: flex;
             align-items: center;
-            padding: 0.8rem 1.5rem;
+            padding: 0.7rem 1rem;
             width: 100%;
             text-align: left;
             cursor: pointer;
             font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
+            font-size: 0.9rem;
             transition: background-color 0.3s;
         }
 
@@ -1291,51 +1346,214 @@
         }
 
         .logout-btn i {
-            margin-right: 0.8rem;
+            margin-right: 0.7rem;
             width: 20px;
             text-align: center;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
+        /* Responsive Design for Tablets and Desktops */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 20px;
             }
             
-            .hero-text {
-                padding-right: 0;
-                margin-bottom: 3rem;
+            .header-container {
+                padding: 1.2rem 0;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            nav ul li {
+                margin-left: 2rem;
+            }
+            
+            nav ul li a {
+                font-size: 1rem;
+            }
+            
+            .nav-buttons {
+                gap: 1rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 1rem;
+            }
+            
+            .hero {
+                padding: 10rem 0 5rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 2rem;
+            }
+            
+            .feature-card {
+                padding: 2rem;
+            }
+            
+            .feature-icon {
+                font-size: 3rem;
             }
             
             .demo-container {
-                flex-direction: column;
+                flex-direction: row;
+                align-items: flex-start;
+            }
+            
+            .demo-text {
+                flex: 1;
+            }
+            
+            .demo-carousel {
+                flex: 1;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 2rem;
+            }
+            
+            .pricing-card {
+                padding: 2.5rem 2rem;
+            }
+            
+            .video-placeholder {
+                height: 400px;
+            }
+            
+            .footer-container {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 2rem;
+            }
+            
+            /* Dashboard adjustments for tablets */
+            .dashboard-container {
+                flex-direction: row;
             }
             
             .sidebar {
-                transform: translateX(-100%);
-            }
-            
-            .sidebar.active {
+                width: 250px;
                 transform: translateX(0);
             }
             
             .main-content {
-                margin-left: 0;
+                margin-left: 250px;
+                padding: 2rem;
             }
             
-            .main-content.sidebar-active {
-                margin-left: 250px;
+            .dashboard-header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .user-info {
+                margin-bottom: 0;
+            }
+            
+            .header-actions {
+                width: auto;
+                justify-content: flex-end;
+            }
+            
+            .header-actions .dashboard-btn {
+                flex: none;
+            }
+            
+            .dashboard-cards {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .section-header {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .section-header h2 {
+                margin-bottom: 0;
+            }
+            
+            .view-all {
+                align-self: center;
+            }
+            
+            .legacies-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .dashboard-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1.5rem;
+            }
+            
+            .family-members {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .help-cards {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+            
+            .voice-sample {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .voice-sample-actions {
+                margin-top: 0;
             }
             
             .mobile-toggle {
-                display: flex;
+                display: none;
             }
         }
 
-        @media (max-width: 768px) {
+        @media (min-width: 992px) {
+            .hero-content {
+                flex-direction: row;
+                text-align: left;
+            }
+            
+            .hero-text {
+                padding-right: 2rem;
+                margin-bottom: 0;
+            }
+            
+            .hero-text h1 {
+                font-size: 3.5rem;
+            }
+            
+            .hamburger {
+                display: none;
+            }
+            
+            nav ul, .nav-buttons {
+                display: flex;
+            }
+            
+            .mobile-menu {
+                display: none;
+            }
+        }
+
+        @media (max-width: 767px) {
             .hamburger {
                 display: block;
+                order: 3; /* Move hamburger to the right */
             }
             
             nav ul, .nav-buttons {
@@ -1344,21 +1562,6 @@
             
             .mobile-menu {
                 display: flex;
-            }
-            
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-            
-            .dashboard-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .header-actions {
-                margin-top: 1rem;
-                width: 100%;
-                justify-content: space-between;
             }
             
             .dashboard-cards {
@@ -1370,7 +1573,7 @@
             }
             
             .memory-grid {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             }
             
             .family-members {
@@ -1702,7 +1905,7 @@
                 </div>
                 
                 <div class="copyright">
-                    <p>&copy; 2023 Crystal. All rights reserved. | Privacy Policy | Terms of Service</p>
+                    <p>&copy; 2025 Crystal. All rights reserved. | Privacy Policy | Terms of Service</p>
                 </div>
             </div>
         </footer>
@@ -1861,7 +2064,7 @@
                     </div>
 
                     <!-- Progress & Activity -->
-                    <div class="dashboard-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                    <div class="dashboard-row">
                         <!-- Progress Section -->
                         <div class="dashboard-section">
                             <div class="section-header">
@@ -1971,14 +2174,16 @@
                         
                         <div class="voice-samples">
                             <div class="voice-sample">
-                                <div class="voice-sample-icon">
-                                    <i class="fas fa-microphone-alt"></i>
-                                </div>
-                                <div class="voice-sample-details">
-                                    <h4>Grandma Eleanor - Interview 1</h4>
-                                    <p>45 minutes • Recorded: March 12, 2023</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 85%"></div>
+                                <div class="voice-sample-header">
+                                    <div class="voice-sample-icon">
+                                        <i class="fas fa-microphone-alt"></i>
+                                    </div>
+                                    <div class="voice-sample-details">
+                                        <h4>Grandma Eleanor - Interview 1</h4>
+                                        <p>45 minutes • Recorded: March 12, 2023</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 85%"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="voice-sample-actions">
@@ -1989,14 +2194,16 @@
                             </div>
                             
                             <div class="voice-sample">
-                                <div class="voice-sample-icon">
-                                    <i class="fas fa-microphone-alt"></i>
-                                </div>
-                                <div class="voice-sample-details">
-                                    <h4>Grandma Eleanor - Family Stories</h4>
-                                    <p>32 minutes • Recorded: April 5, 2023</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 100%"></div>
+                                <div class="voice-sample-header">
+                                    <div class="voice-sample-icon">
+                                        <i class="fas fa-microphone-alt"></i>
+                                    </div>
+                                    <div class="voice-sample-details">
+                                        <h4>Grandma Eleanor - Family Stories</h4>
+                                        <p>32 minutes • Recorded: April 5, 2023</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 100%"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="voice-sample-actions">
@@ -2007,14 +2214,16 @@
                             </div>
                             
                             <div class="voice-sample">
-                                <div class="voice-sample-icon">
-                                    <i class="fas fa-microphone-alt"></i>
-                                </div>
-                                <div class="voice-sample-details">
-                                    <h4>Uncle Robert - Life Memories</h4>
-                                    <p>28 minutes • Recorded: May 20, 2023</p>
-                                    <div class="progress-bar">
-                                        <div class="progress-fill" style="width: 60%"></div>
+                                <div class="voice-sample-header">
+                                    <div class="voice-sample-icon">
+                                        <i class="fas fa-microphone-alt"></i>
+                                    </div>
+                                    <div class="voice-sample-details">
+                                        <h4>Uncle Robert - Life Memories</h4>
+                                        <p>28 minutes • Recorded: May 20, 2023</p>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" style="width: 60%"></div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="voice-sample-actions">
@@ -2559,19 +2768,16 @@
         // Mobile sidebar toggle
         const mobileToggle = document.getElementById('mobileToggle');
         const sidebar = document.getElementById('sidebar');
-        const mainContent = document.getElementById('mainContent');
         
         mobileToggle.addEventListener('click', () => {
             sidebar.classList.toggle('active');
-            mainContent.classList.toggle('sidebar-active');
         });
         
         // Close sidebar when clicking outside on mobile
         document.addEventListener('click', (e) => {
-            if (window.innerWidth <= 992) {
+            if (window.innerWidth <= 768) {
                 if (!sidebar.contains(e.target) && !mobileToggle.contains(e.target)) {
                     sidebar.classList.remove('active');
-                    mainContent.classList.remove('sidebar-active');
                 }
             }
         });
@@ -2596,9 +2802,8 @@
                 document.getElementById(target + '-section').classList.add('active');
                 
                 // Close sidebar on mobile after navigation
-                if (window.innerWidth <= 992) {
+                if (window.innerWidth <= 768) {
                     sidebar.classList.remove('active');
-                    mainContent.classList.remove('sidebar-active');
                 }
             });
         });
