@@ -1046,7 +1046,7 @@
             display: block;
         }
 
-        /* Voice Cloning Section */
+        /* Voice Cloning Section - UPDATED */
         .voice-sample {
             display: flex;
             flex-direction: column;
@@ -1077,6 +1077,26 @@
             gap: 0.4rem;
             margin-top: 0.8rem;
             justify-content: flex-end;
+        }
+
+        /* For tablets and larger screens - push buttons to the right */
+        @media (min-width: 768px) {
+            .voice-sample {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            
+            .voice-sample-header {
+                margin-bottom: 0;
+                flex: 1;
+            }
+            
+            .voice-sample-actions {
+                margin-top: 0;
+                margin-left: 1rem;
+                flex-shrink: 0;
+            }
         }
 
         /* Memory Compilation Section */
@@ -1504,15 +1524,6 @@
             
             .help-cards {
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            }
-            
-            .voice-sample {
-                flex-direction: row;
-                align-items: center;
-            }
-            
-            .voice-sample-actions {
-                margin-top: 0;
             }
             
             .mobile-toggle {
